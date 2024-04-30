@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ubuntu:
+    image: local/ubuntu:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    # for interactive shell
+    tty: true
+    restart: always
+    environment:
+      - LOCAL_UID=501
+      - LOCAL_GID=20
+    command: "/bin/bash"
